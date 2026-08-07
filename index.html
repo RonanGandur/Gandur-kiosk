@@ -52,7 +52,7 @@ body {
 
     width: calc(100vw - 40px);
 
-	width-left: calc(100vw - 60px);
+	width-left: calc(100vw 20px);
 
     height: calc(100vh - 40px);
 
@@ -74,7 +74,7 @@ body {
 
 .top-bar {
 
-    height: 75px;
+    height: 90px;
 
     flex-shrink: 0;
 
@@ -210,7 +210,7 @@ body {
 
     position: relative;
 
-    height: 850px;
+    height: 780px;
 
     flex-shrink: 0;
 
@@ -1894,6 +1894,10 @@ console.log(
     "Jocauto Kiosk iniciado."
 );
 
+setInterval(() => {
+    location.reload();
+}, 60000);
+	
 </script>
 
 </body>
