@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+          content="width=device-width,
+                   initial-scale=1.0,
+                   maximum-scale=1.0,
+                   user-scalable=no">
 
-    <title>Jocauto Auto Center - Dashboard</title>
+    <title>Jocauto Auto Center</title>
 
-    <style>
-	
-	/* =========================================================
-   CONFIGURAÇÕES GERAIS
+   <style>
+   
+   /* =========================================================
+   RESET
 ========================================================= */
 
 * {
@@ -19,16 +24,19 @@
     padding: 0;
 }
 
+
 html,
 body {
+
     width: 100%;
     height: 100%;
-    overflow: hidden;
-}
 
-body {
+    overflow: hidden;
+
     background: #050505;
+
     color: #ffffff;
+
     font-family:
         Arial,
         Helvetica,
@@ -37,422 +45,158 @@ body {
 
 
 /* =========================================================
-   CONTAINER PRINCIPAL
+   ÁREA SEGURA DO TOTEM
 ========================================================= */
 
-#main-container {
-    width: 100vw;
-    height: 100vh;
+#safe-area {
 
-    display: grid;
+    width: calc(100vw - 40px);
 
-    grid-template-columns:
-        minmax(270px, 20vw)
-        minmax(0, 1fr);
+    height: calc(100vh - 40px);
 
-    gap: 10px;
-
-    padding: 10px;
-
-    background:
-        radial-gradient(
-            circle at top right,
-            #191919,
-            #050505 60%
-        );
-}
-
-
-/* =========================================================
-   SIDEBAR
-========================================================= */
-
-.sidebar {
-    min-width: 0;
-    height: 100%;
+    margin: 20px;
 
     display: flex;
+
     flex-direction: column;
 
-    gap: 7px;
+    gap: 10px;
 
     overflow: hidden;
 }
 
 
 /* =========================================================
-   LOGO
+   CABEÇALHO
 ========================================================= */
 
-.logo-section {
-    text-align: center;
+.top-bar {
 
-    padding: 5px 5px 8px;
+    height: 105px;
 
-    border-bottom:
-        1px solid #292929;
+    flex-shrink: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1.2fr
+        1fr
+        .7fr;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 12px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #171717,
+            #090909
+        );
+
+    border:
+
+        1px solid #2b2b2b;
+
+    border-radius: 10px;
 }
 
-.jocauto-logo {
-    font-size: clamp(25px, 2.1vw, 45px);
+
+/* LOGO */
+
+.brand-name {
+
+    font-size: 42px;
 
     font-weight: 900;
 
     font-style: italic;
 
-    letter-spacing: -2px;
+    letter-spacing: -3px;
 }
 
-.logo-joc {
-    color: white;
+.brand-name span {
+
+    color: #ffffff;
 }
 
-.logo-auto {
+.brand-name {
+
     color: #e50909;
 }
 
-.logo-subtitle {
-    font-size: clamp(10px, .7vw, 16px);
+.brand-subtitle {
 
-    letter-spacing: 3px;
+    color: #aaa;
 
-    font-weight: bold;
-}
+    font-size: 13px;
 
-.logo-stars {
-    color: #e50909;
+    letter-spacing: 6px;
 
-    font-size: 12px;
-
-    margin-top: 3px;
+    margin-left: 4px;
 }
 
 
-/* =========================================================
-   CARDS
-========================================================= */
+/* RELÓGIO */
 
-.dashboard-card {
-    background:
-        linear-gradient(
-            145deg,
-            #151515,
-            #090909
-        );
+.clock-area {
 
-    border:
-        1px solid #292929;
-
-    border-radius: 6px;
-
-    padding: 9px;
-
-    box-shadow:
-        0 3px 12px rgba(0,0,0,.35);
-
-    min-width: 0;
+    text-align: center;
 }
-
-
-/* =========================================================
-   TÍTULOS
-========================================================= */
-
-.section-title {
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-
-    color: #eeeeee;
-
-    font-size: clamp(10px, .72vw, 15px);
-
-    font-weight: 800;
-
-    letter-spacing: .6px;
-
-    margin-bottom: 7px;
-}
-
-.title-line {
-    width: 3px;
-    height: 16px;
-
-    background: #e50909;
-
-    border-radius: 4px;
-}
-
-.section-title.yellow {
-    color: #ffd21c;
-}
-
-.section-title.blue {
-    color: #16a9ff;
-}
-
-.section-title.green {
-    color: #52d96b;
-}
-
-
-/* =========================================================
-   RELÓGIO
-========================================================= */
 
 #clock {
-    font-size: clamp(24px, 2.2vw, 45px);
+
+    font-size: 42px;
 
     font-weight: 800;
-
-    letter-spacing: 1px;
 
     line-height: 1;
 }
 
 #date {
-    margin-top: 5px;
 
-    color: #bbbbbb;
+    color: #aaa;
 
-    font-size: clamp(9px, .62vw, 14px);
+    font-size: 15px;
+
+    margin-top: 6px;
 }
 
 
-/* =========================================================
-   CLIMA
-========================================================= */
+/* CLIMA */
 
-.weather-main {
+.weather-mini {
+
     display: flex;
 
     align-items: center;
+
+    justify-content: center;
 
     gap: 10px;
 }
 
-.weather-icon {
-    font-size: clamp(30px, 2.5vw, 50px);
+#weather-icon {
+
+    font-size: 45px;
 }
 
-.temperature {
-    font-size: clamp(24px, 2vw, 40px);
+.weather-mini strong {
 
-    font-weight: 800;
-}
-
-#weather-description {
-    color: #bbbbbb;
-
-    font-size: clamp(9px, .6vw, 13px);
-}
-
-.location {
-    margin-top: 7px;
-
-    font-size: clamp(9px, .62vw, 13px);
-
-    color: #cccccc;
-}
-
-
-/* =========================================================
-   PREVISÃO
-========================================================= */
-
-.forecast-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(5, 1fr);
-
-    gap: 2px;
-}
-
-.forecast-day {
-    text-align: center;
-
-    border-right:
-        1px solid #292929;
-
-    padding: 2px;
-}
-
-.forecast-day:last-child {
-    border-right: none;
-}
-
-.forecast-name {
-    font-size: clamp(8px, .55vw, 12px);
-
-    color: #bbbbbb;
-}
-
-.forecast-icon {
-    font-size: clamp(15px, 1.3vw, 25px);
-
-    margin: 3px 0;
-}
-
-.forecast-temp {
-    font-size: clamp(8px, .55vw, 12px);
-
-    line-height: 1.2;
-}
-
-
-/* =========================================================
-   NOTÍCIAS
-========================================================= */
-
-.news-item {
-    display: grid;
-
-    grid-template-columns: 48px 1fr;
-
-    gap: 7px;
-
-    margin-bottom: 7px;
-}
-
-.news-item:last-child {
-    margin-bottom: 0;
-}
-
-.news-item img {
-    width: 48px;
-    height: 42px;
-
-    object-fit: cover;
-
-    border-radius: 4px;
-}
-
-.news-title {
-    font-size: clamp(8px, .58vw, 13px);
-
-    line-height: 1.25;
-
-    font-weight: 600;
-}
-
-.news-time {
     display: block;
 
-    color: #ef2525;
-
-    font-size: clamp(7px, .5vw, 11px);
-
-    margin-top: 2px;
+    font-size: 28px;
 }
 
+.weather-mini small {
 
-/* =========================================================
-   DICA / FATO / TECNOLOGIA
-========================================================= */
+    display: block;
 
-.tip-section p,
-.fact-section p,
-.tech-section p {
-    color: #d0d0d0;
+    color: #aaa;
 
-    font-size: clamp(8px, .57vw, 13px);
-
-    line-height: 1.35;
-}
-
-.tech-content {
-    display: grid;
-
-    grid-template-columns: 60px 1fr;
-
-    gap: 8px;
-
-    align-items: center;
-}
-
-.tech-content img {
-    width: 60px;
-    height: 48px;
-
-    object-fit: cover;
-
-    border-radius: 4px;
-}
-
-
-/* =========================================================
-   QR CODE
-========================================================= */
-
-.qrcode-section {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-}
-
-.qr-text {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 3px;
-
-    font-size: clamp(8px, .6vw, 13px);
-}
-
-.qr-text small {
-    color: #999999;
-}
-
-.fake-qr {
-    width: 55px;
-    height: 55px;
-
-    background: white;
-
-    padding: 5px;
-
-    border-radius: 3px;
-}
-
-.qr-pattern {
-    width: 100%;
-    height: 100%;
-
-    background:
-        repeating-linear-gradient(
-            45deg,
-            #000 0px,
-            #000 3px,
-            #fff 3px,
-            #fff 6px
-        );
-}
-
-
-/* =========================================================
-   PAINEL PRINCIPAL
-========================================================= */
-
-.main-panel {
-    min-width: 0;
-    height: 100%;
-
-    display: grid;
-
-    grid-template-rows:
-        minmax(0, 1fr)
-        auto
-        auto;
-
-    gap: 8px;
-
-    overflow: hidden;
+    font-size: 13px;
 }
 
 
@@ -460,29 +204,27 @@ body {
    SLIDER
 ========================================================= */
 
-.promo-section {
+.hero-slider {
+
     position: relative;
 
-    min-height: 0;
+    height: 820px;
+
+    flex-shrink: 0;
 
     overflow: hidden;
 
+    border-radius: 12px;
+
     border:
-        1px solid #303030;
+        1px solid #292929;
 
-    border-radius: 8px;
-
-    background: #080808;
+    background: #090909;
 }
 
-#promo-slider {
-    width: 100%;
-    height: 100%;
 
-    position: relative;
-}
+.slide {
 
-.promo-slide {
     position: absolute;
 
     inset: 0;
@@ -493,21 +235,20 @@ body {
 
     opacity: 0;
 
-    transform: scale(1.02);
+    transform: scale(1.03);
 
     transition:
         opacity 1s ease,
-        transform 7s ease;
+        transform 10s ease;
 
-    pointer-events: none;
 }
 
-.promo-slide.active {
+.slide.active {
+
     opacity: 1;
 
     transform: scale(1);
 
-    pointer-events: auto;
 }
 
 
@@ -515,12 +256,13 @@ body {
    CONTEÚDO DO SLIDE
 ========================================================= */
 
-.promo-content {
-    width: 60%;
+.slide-content {
+
+    width: 72%;
+
     height: 100%;
 
-    padding:
-        clamp(25px, 4vw, 80px);
+    padding: 80px 60px;
 
     display: flex;
 
@@ -528,197 +270,191 @@ body {
 
     justify-content: center;
 
-    gap: clamp(8px, 1vw, 20px);
+    gap: 22px;
 }
 
-.promo-label {
-    display: inline-block;
+
+.red-label,
+.blue-label {
 
     width: fit-content;
 
-    background: #e50909;
+    padding: 9px 20px;
 
-    padding:
-        6px 25px;
+    font-size: 18px;
 
     font-weight: 900;
 
-    font-size: clamp(14px, 1.2vw, 25px);
+    letter-spacing: 1px;
 
-    transform: skew(-12deg);
+    border-radius: 4px;
 }
 
-.promo-content h1 {
-    font-size: clamp(35px, 4.2vw, 90px);
+.red-label {
 
-    line-height: .9;
+    background: #e50909;
+}
+
+.blue-label {
+
+    background: #007dd9;
+}
+
+
+/* TÍTULO */
+
+.slide h1 {
+
+    font-size: 76px;
+
+    line-height: .94;
 
     font-weight: 800;
+
+    text-transform: uppercase;
 }
 
-.promo-content h1 strong {
-    font-weight: 900;
+.slide h1 strong {
+
+    color: #e50909;
+
+    display: block;
 }
 
-.promo-content h2 {
-    font-size: clamp(15px, 1.3vw, 30px);
+.slide p {
+
+    font-size: 27px;
+
+    font-weight: 700;
 
     line-height: 1.2;
 
-    color: #eeeeee;
+    max-width: 650px;
 }
 
 
-/* =========================================================
-   ÍCONES DE SERVIÇOS
-========================================================= */
+/* SERVIÇOS */
 
-.service-icons {
+.services {
+
     display: grid;
 
     grid-template-columns:
-        repeat(4, 1fr);
+        repeat(3, 1fr);
 
-    gap: 8px;
+    gap: 15px;
 
-    max-width: 750px;
+    max-width: 720px;
 
     margin-top: 10px;
 }
 
-.service-item {
+.services > div {
+
     display: flex;
 
     align-items: center;
 
-    gap: 7px;
+    gap: 10px;
+
+    padding-top: 12px;
 
     border-top:
-        1px solid #555;
+        2px solid rgba(255,255,255,.35);
 
-    padding-top: 8px;
+    font-size: 35px;
 }
 
-.service-item span {
-    font-size: clamp(18px, 1.6vw, 34px);
+.services span {
+
+    font-size: 15px;
+
+    line-height: 1.15;
+
+    font-weight: 700;
 }
 
-.service-item small {
-    font-size: clamp(7px, .55vw, 12px);
+
+/* CONTATO */
+
+.slide-contact {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 20px;
+
+    margin-top: 10px;
+}
+
+.slide-contact strong {
+
+    font-size: 25px;
+
+    color: #48e06d;
+}
+
+
+/* GANDUR */
+
+.gandur-title {
+
+    font-size: 64px;
+
+    font-weight: 900;
+
+    color: #ffffff;
+
+    letter-spacing: 2px;
+}
+
+.gandur-subtitle {
+
+    color: #00a8ff;
+
+    font-size: 18px;
+
+    font-weight: 900;
+
+    letter-spacing: 7px;
+
+    margin-top: -18px;
+}
+
+.slide:nth-child(2) h1 strong {
+
+    color: #00a8ff;
+}
+
+
+/* MANUTENÇÃO */
+
+.maintenance {
+
+    font-size: 22px;
+
+    line-height: 1.65;
 
     font-weight: 700;
 
-    line-height: 1.15;
-}
-
-
-/* =========================================================
-   BOTÕES
-========================================================= */
-
-.cta-button {
-    width: fit-content;
-
-    border: none;
-
-    background: #e50909;
-
-    color: white;
-
-    padding:
-        12px 28px;
-
-    border-radius: 5px;
-
-    font-size: clamp(11px, .8vw, 17px);
-
-    font-weight: 900;
-
-    cursor: pointer;
-}
-
-.cta-button:hover {
-    background: #ff2020;
-}
-
-.blue-button {
-    background: #087bd8;
-}
-
-
-/* =========================================================
-   WHATSAPP
-========================================================= */
-
-.whatsapp {
-    font-size: clamp(11px, .9vw, 20px);
-}
-
-
-/* =========================================================
-   GANDUR
-========================================================= */
-
-.gandur-logo {
-    font-size: clamp(25px, 2.8vw, 60px);
-
-    font-weight: 900;
-
-    color: white;
-}
-
-.gandur-logo span {
-    color: #00a8ff;
-}
-
-.gandur-logo small {
-    display: block;
-
-    color: #00a8ff;
-
-    font-size: .35em;
-
-    letter-spacing: 5px;
-
-    margin-left: 5px;
-}
-
-.gandur-highlight {
-    display: inline-block;
-
-    width: fit-content;
-
-    background: #087bd8;
-
-    padding: 7px 14px;
-
-    font-size: clamp(9px, .7vw, 15px);
-
-    font-weight: 800;
-}
-
-.maintenance-list {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
+    columns: 2;
 
     max-width: 500px;
-
-    gap: 7px;
-
-    font-size: clamp(9px, .7vw, 15px);
 }
 
 
 /* =========================================================
-   SLIDER DOTS
+   DOTS
 ========================================================= */
 
 .slider-dots {
+
     position: absolute;
 
-    top: 14px;
+    bottom: 20px;
 
     left: 50%;
 
@@ -726,217 +462,419 @@ body {
 
     display: flex;
 
-    gap: 8px;
+    gap: 10px;
 
     z-index: 20;
 }
 
-.slider-dot {
-    width: 10px;
-    height: 10px;
+.dot {
+
+    width: 13px;
+
+    height: 13px;
 
     border-radius: 50%;
 
-    background: #cccccc;
-
-    cursor: pointer;
+    background: #777;
 }
 
-.slider-dot.active {
+.dot.active {
+
+    width: 34px;
+
+    border-radius: 10px;
+
     background: #e50909;
 }
 
 
 /* =========================================================
-   ÚLTIMAS NOTÍCIAS
+   PAINÉIS
 ========================================================= */
 
-.latest-news {
-    background: #0b0b0b;
+.panel,
+.small-panel {
+
+    background:
+        linear-gradient(
+            145deg,
+            #161616,
+            #0b0b0b
+        );
 
     border:
         1px solid #292929;
 
-    border-radius: 6px;
+    border-radius: 9px;
 
-    padding: 8px;
+    padding: 15px;
 }
 
-.latest-news .section-title {
-    margin-bottom: 6px;
-}
 
-.news-source {
-    margin-left: auto;
+.panel-title {
 
-    color: #777;
+    display: flex;
 
-    font-size: clamp(7px, .5vw, 10px);
-}
-
-.latest-news-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 7px;
-}
-
-.latest-news-card {
-    display: grid;
-
-    grid-template-columns: 70px 1fr;
+    align-items: center;
 
     gap: 8px;
 
-    background: #111;
+    font-size: 18px;
 
-    border-radius: 5px;
+    font-weight: 900;
 
-    overflow: hidden;
+    margin-bottom: 12px;
+
+    color: #eeeeee;
 }
 
-.latest-news-card img {
-    width: 70px;
-    height: 55px;
+
+/* =========================================================
+   NOTÍCIAS + PREVISÃO
+========================================================= */
+
+.info-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1.8fr
+        1fr;
+
+    height: 260px;
+
+    flex-shrink: 0;
+
+    gap: 10px;
+}
+
+
+/* NOTÍCIAS */
+
+.news-item {
+
+    display: grid;
+
+    grid-template-columns:
+        105px 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 9px;
+
+    padding-bottom: 8px;
+
+    border-bottom:
+        1px solid #292929;
+}
+
+.news-item img {
+
+    width: 105px;
+
+    height: 62px;
 
     object-fit: cover;
+
+    border-radius: 5px;
 }
 
-.latest-news-card div {
-    padding: 4px 4px 4px 0;
-}
+.news-item strong {
 
-.latest-news-card strong {
     display: block;
 
-    font-size: clamp(8px, .6vw, 13px);
+    font-size: 15px;
 
-    line-height: 1.2;
+    line-height: 1.25;
 }
 
-.latest-news-card span {
+.news-item small {
+
     display: block;
 
     color: #e50909;
 
-    font-size: clamp(7px, .5vw, 10px);
+    margin-top: 5px;
 
-    margin-top: 3px;
+    font-size: 11px;
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* PREVISÃO */
 
-.footer {
-    min-height: 55px;
+#forecast {
 
     display: grid;
 
     grid-template-columns:
-        1fr
-        1.5fr
-        2fr;
+        repeat(5, 1fr);
 
-    align-items: center;
+    height: 170px;
+}
+
+.forecast-day {
+
+    text-align: center;
+
+    border-right:
+        1px solid #292929;
+
+    padding: 5px;
+}
+
+.forecast-day:last-child {
+
+    border-right: none;
+}
+
+.forecast-day strong {
+
+    font-size: 14px;
+}
+
+.forecast-day .icon {
+
+    font-size: 34px;
+
+    margin: 14px 0;
+}
+
+.forecast-day span {
+
+    display: block;
+
+    color: #aaa;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   DICA + FATO
+========================================================= */
+
+.tip-fact-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
 
     gap: 10px;
 
-    padding: 5px 12px;
+    height: 150px;
 
-    border-top:
-        1px solid #292929;
+    flex-shrink: 0;
 }
 
-.footer-logo {
-    font-size: clamp(17px, 1.5vw, 30px);
+.small-title {
+
+    font-size: 17px;
 
     font-weight: 900;
 
-    font-style: italic;
+    margin-bottom: 10px;
 }
 
-.footer-logo small {
-    display: block;
+.tip .small-title {
 
-    font-size: clamp(7px, .45vw, 10px);
-
-    letter-spacing: 2px;
+    color: #ffd21c;
 }
 
-.footer-message {
-    text-align: center;
+.fact .small-title {
 
-    font-size: clamp(8px, .65vw, 13px);
-
-    font-weight: 800;
+    color: #23a9ff;
 }
 
-.footer-values {
-    display: flex;
+.small-panel p {
 
-    justify-content: space-around;
+    color: #ccc;
+
+    font-size: 16px;
+
+    line-height: 1.35;
 }
 
-.footer-values div {
-    display: flex;
+
+/* =========================================================
+   TECNOLOGIA
+========================================================= */
+
+.technology {
+
+    height: 190px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        250px 1fr;
+
+    gap: 20px;
 
     align-items: center;
+}
+
+.technology-image {
+
+    height: 155px;
+
+    overflow: hidden;
+
+    border-radius: 7px;
+}
+
+.technology-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.technology-text h2 {
+
+    font-size: 27px;
+
+    margin-bottom: 8px;
+}
+
+.technology-text p {
+
+    font-size: 16px;
+
+    color: #bbb;
+
+    line-height: 1.4;
+
+    max-width: 600px;
+}
+
+
+/* =========================================================
+   CONTATO
+========================================================= */
+
+.contact-panel {
+
+    height: 105px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1.5fr 1.5fr;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 10px 20px;
+
+    background:
+        linear-gradient(
+            100deg,
+            #111,
+            #191919
+        );
+
+    border-radius: 8px;
+
+    border:
+        1px solid #292929;
+}
+
+.contact-brand .brand-name {
+
+    font-size: 30px;
+}
+
+.contact-brand small {
+
+    color: #aaa;
+
+    letter-spacing: 3px;
+}
+
+.contact-whatsapp,
+.contact-gandur {
+
+    display: flex;
+
+    flex-direction: column;
 
     gap: 4px;
 }
 
-.footer-values span {
-    font-size: 18px;
-}
+.contact-whatsapp span,
+.contact-gandur span {
 
-.footer-values small {
-    font-size: clamp(6px, .45vw, 10px);
-}
+    color: #aaa;
 
-
-/* =========================================================
-   STATUS BAR
-========================================================= */
-
-.status-bar {
-    min-height: 32px;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr
-        1fr
-        1fr;
-
-    align-items: center;
-
-    padding:
-        5px 12px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #c90000,
-            #e50909,
-            #b90000
-        );
-
-    border-radius: 4px;
-
-    font-size: clamp(7px, .55vw, 12px);
+    font-size: 12px;
 
     font-weight: 700;
 }
 
-.status-bar > *:nth-child(2) {
+.contact-whatsapp strong {
+
+    color: #48e06d;
+
+    font-size: 22px;
+}
+
+.contact-gandur strong {
+
+    color: #00a8ff;
+
+    font-size: 22px;
+}
+
+
+/* =========================================================
+   RODAPÉ
+========================================================= */
+
+footer {
+
+    height: 55px;
+
+    flex-shrink: 0;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    align-items: center;
+
+    padding: 0 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #b90000,
+            #e50909,
+            #b90000
+        );
+
+    border-radius: 6px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+footer strong {
+
     text-align: center;
 }
 
-.status-bar > *:last-child {
+footer div:last-child {
+
     text-align: right;
 }
 
@@ -945,622 +883,641 @@ body {
    RESPONSIVIDADE
 ========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 800px) {
 
-    #main-container {
-        grid-template-columns: 210px 1fr;
+    .slide h1 {
+        font-size: 55px;
     }
 
-    .promo-content {
-        width: 75%;
+    .slide-content {
+        padding: 40px;
+    }
+
+    .top-bar {
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .weather-mini {
+        display: none;
     }
 
 }
-
-@media (max-height: 600px) {
-
-    .dashboard-card {
-        padding: 5px;
-    }
-
-    .sidebar {
-        gap: 4px;
-    }
-
-    .promo-content {
-        padding: 25px;
-        gap: 6px;
-    }
-
-    .service-icons {
-        margin-top: 3px;
-    }
-
-    .footer {
-        min-height: 42px;
-    }
-
-    .status-bar {
-        min-height: 25px;
-    }
-}
-	
-	</style>
-	
+   
+   </style>
+   
 </head>
+
 
 <body>
 
-<div id="main-container">
+<div id="safe-area">
 
-    <!-- =========================================================
-         SIDEBAR
-    ========================================================== -->
-    <aside class="sidebar">
 
-        <!-- LOGO -->
-        <div class="logo-section">
-            <div class="jocauto-logo">
-                <span class="logo-joc">JOC</span><span class="logo-auto">AUTO</span>
+    <!-- =====================================================
+         CABEÇALHO
+    ====================================================== -->
+
+    <header class="top-bar">
+
+        <div class="brand">
+
+            <div class="brand-name">
+                <span>JOC</span>AUTO
             </div>
 
-            <div class="logo-subtitle">
+            <div class="brand-subtitle">
                 AUTO CENTER
             </div>
 
-            <div class="logo-stars">
-                ★ ★ ★ ★ ★
-            </div>
         </div>
 
 
-        <!-- RELÓGIO -->
-        <section class="dashboard-card clock-date-section">
+        <div class="clock-area">
 
-            <div class="section-title">
-                <span class="title-line"></span>
-                HORA E DATA
+            <div id="clock">
+                00:00:00
             </div>
-
-            <div id="clock">00:00:00</div>
 
             <div id="date">
-                Segunda-feira, 01 de Janeiro de 2026
+                Segunda-feira, 01 de janeiro
             </div>
 
-        </section>
+        </div>
 
 
-        <!-- CLIMA -->
-        <section class="dashboard-card weather-section">
+        <div class="weather-mini">
 
-            <div class="section-title">
-                <span class="title-line"></span>
-                CLIMA AGORA
+            <div id="weather-icon">
+                🌤️
             </div>
 
-            <div class="weather-main">
+            <div>
+                <strong id="temperature">
+                    22°C
+                </strong>
 
-                <div id="weather-icon" class="weather-icon">
-                    ☀️
-                </div>
+                <small>
+                    Nova Friburgo
+                </small>
+            </div>
 
-                <div>
-                    <div id="temperature" class="temperature">
-                        25°C
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         SLIDER PRINCIPAL
+    ====================================================== -->
+
+    <section class="hero-slider">
+
+
+        <!-- SLIDE JOCAUTO -->
+
+        <article class="slide active"
+                 style="
+                 background-image:
+                 linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.94),
+                    rgba(0,0,0,.55),
+                    rgba(0,0,0,.10)
+                 ),
+                 url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1400&q=85');
+                 ">
+
+            <div class="slide-content">
+
+                <span class="red-label">
+                    JOCAUTO AUTO CENTER
+                </span>
+
+                <h1>
+                    TROCA DE
+                    <strong>ÓLEO</strong>
+                </h1>
+
+                <p>
+                    MAIS DESEMPENHO E PROTEÇÃO
+                    PARA O SEU MOTOR!
+                </p>
+
+
+                <div class="services">
+
+                    <div>
+                        🛢️
+                        <span>
+                            Óleo<br>
+                            sintético
+                        </span>
                     </div>
 
-                    <div id="weather-description">
-                        Parcialmente nublado
+                    <div>
+                        ⚙️
+                        <span>
+                            Filtro<br>
+                            de óleo
+                        </span>
                     </div>
+
+                    <div>
+                        🔧
+                        <span>
+                            Mão de obra<br>
+                            especializada
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="slide-contact">
+
+                    📱 WhatsApp
+
+                    <strong>
+                        (22) 97403-3745
+                    </strong>
+
                 </div>
 
             </div>
 
-            <div class="location">
-                📍 Nova Friburgo - RJ
+        </article>
+
+
+
+        <!-- SLIDE GANDUR -->
+
+        <article class="slide"
+                 style="
+                 background-image:
+                 linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.95),
+                    rgba(0,0,0,.60),
+                    rgba(0,0,0,.08)
+                 ),
+                 url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=85');
+                 ">
+
+            <div class="slide-content">
+
+                <div class="gandur-title">
+                    GANDUR
+                </div>
+
+                <div class="gandur-subtitle">
+                    ÁUDIO SYSTEM
+                </div>
+
+
+                <span class="blue-label">
+                    SONORIZAÇÃO PROFISSIONAL
+                </span>
+
+
+                <h1>
+                    SOM PARA
+                    <strong>
+                        TEMPLOS
+                        E IGREJAS
+                    </strong>
+                </h1>
+
+
+                <p>
+                    PROJETOS • INSTALAÇÃO •
+                    LINE ARRAY • DSP
+                </p>
+
+
+                <div class="services">
+
+                    <div>
+                        🔊
+                        <span>
+                            Line Array<br>
+                            profissional
+                        </span>
+                    </div>
+
+                    <div>
+                        🎛️
+                        <span>
+                            Processamento<br>
+                            digital
+                        </span>
+                    </div>
+
+                    <div>
+                        🎚️
+                        <span>
+                            Projetos<br>
+                            personalizados
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="slide-contact">
+
+                    📱 WhatsApp
+
+                    <strong>
+                        (22) 99734-6040
+                    </strong>
+
+                </div>
+
             </div>
 
-        </section>
+        </article>
 
 
-        <!-- PREVISÃO -->
-        <section class="dashboard-card forecast-section">
 
-            <div class="section-title">
-                <span class="title-line"></span>
-                PRÓXIMOS DIAS
+        <!-- SLIDE MANUTENÇÃO -->
+
+        <article class="slide"
+                 style="
+                 background-image:
+                 linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.95),
+                    rgba(0,0,0,.60),
+                    rgba(0,0,0,.10)
+                 ),
+                 url('https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1400&q=85');
+                 ">
+
+            <div class="slide-content">
+
+                <span class="red-label">
+                    MANUTENÇÃO PREVENTIVA
+                </span>
+
+                <h1>
+                    CUIDE HOJE
+                    DO SEU
+                    <strong>CARRO</strong>
+                </h1>
+
+                <p>
+                    MAIS SEGURANÇA,
+                    TRANQUILIDADE E
+                    VIDA ÚTIL.
+                </p>
+
+
+                <div class="maintenance">
+
+                    ✓ Freios<br>
+                    ✓ Suspensão<br>
+                    ✓ Pneus<br>
+                    ✓ Bateria<br>
+                    ✓ Óleo e filtros
+
+                </div>
+
+
+                <div class="slide-contact">
+
+                    📱 Agende pelo WhatsApp
+
+                    <strong>
+                        (22) 97403-3745
+                    </strong>
+
+                </div>
+
             </div>
 
-            <div id="forecast" class="forecast-grid">
-                <!-- preenchido pelo JavaScript -->
-            </div>
+        </article>
 
-        </section>
+
+        <div class="slider-dots">
+
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         LINHA DE INFORMAÇÕES
+    ====================================================== -->
+
+    <section class="info-row">
 
 
         <!-- NOTÍCIAS -->
-        <section class="dashboard-card featured-news">
 
-            <div class="section-title">
-                <span class="title-line"></span>
+        <div class="panel news-panel">
+
+            <div class="panel-title">
+                <span>📰</span>
                 NOTÍCIAS EM DESTAQUE
             </div>
 
-            <div id="featured-news-list"></div>
+            <div id="news-list">
 
-        </section>
+                <!-- JavaScript -->
+
+            </div>
+
+        </div>
 
 
-        <!-- DICA -->
-        <section class="dashboard-card tip-section">
+        <!-- PREVISÃO -->
 
-            <div class="section-title yellow">
+        <div class="panel forecast-panel">
+
+            <div class="panel-title">
+                <span>🌤️</span>
+                PREVISÃO
+            </div>
+
+            <div id="forecast">
+
+                <!-- JavaScript -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         DICA + FATO
+    ====================================================== -->
+
+    <section class="tip-fact-row">
+
+
+        <div class="small-panel tip">
+
+            <div class="small-title">
                 💡 DICA DO DIA
             </div>
 
             <p id="daily-tip">
-                Verifique regularmente o nível do óleo e mantenha a manutenção do veículo em dia.
+                Faça a manutenção preventiva
+                antes que um pequeno problema
+                se transforme em um grande
+                prejuízo.
             </p>
 
-        </section>
+        </div>
 
 
-        <!-- FATO -->
-        <section class="dashboard-card fact-section">
+        <div class="small-panel fact">
 
-            <div class="section-title blue">
+            <div class="small-title">
                 🌎 FATO DO DIA
             </div>
 
             <p id="daily-fact">
-                O primeiro semáforo do mundo foi instalado em Londres em 1868.
+                Você sabia? Pneus calibrados
+                corretamente ajudam na
+                segurança e no consumo
+                de combustível.
             </p>
-
-        </section>
-
-
-        <!-- TECNOLOGIA -->
-        <section class="dashboard-card tech-section">
-
-            <div class="section-title green">
-                🤖 TECNOLOGIA
-            </div>
-
-            <div class="tech-content">
-
-                <img
-                    src="https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=500&q=80"
-                    alt="Tecnologia automotiva"
-                >
-
-                <p>
-                    Novas tecnologias estão transformando a segurança e o desempenho dos veículos.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- QR CODE -->
-        <section class="dashboard-card qrcode-section">
-
-            <div class="qr-text">
-                <strong>FALE CONOSCO</strong>
-                <span>PELO WHATSAPP</span>
-                <small>Aponte a câmera!</small>
-            </div>
-
-            <div class="fake-qr">
-                <div class="qr-pattern"></div>
-            </div>
-
-        </section>
-
-    </aside>
-
-
-    <!-- =========================================================
-         PAINEL PRINCIPAL
-    ========================================================== -->
-    <main class="main-panel">
-
-        <!-- SLIDER -->
-        <section class="promo-section">
-
-            <div id="promo-slider">
-
-                <!-- SLIDE 1 -->
-                <article class="promo-slide active"
-                         style="
-                         background-image:
-                         linear-gradient(90deg,
-                         rgba(0,0,0,.95) 0%,
-                         rgba(0,0,0,.75) 48%,
-                         rgba(0,0,0,.15) 100%),
-                         url('https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1600&q=85');
-                         ">
-
-                    <div class="promo-content">
-
-                        <div class="promo-label">
-                            PROMOÇÃO
-                        </div>
-
-                        <h1>
-                            TROCA DE<br>
-                            <strong>ÓLEO</strong>
-                        </h1>
-
-                        <h2>
-                            MAIS DESEMPENHO<br>
-                            E PROTEÇÃO PARA<br>
-                            O SEU MOTOR!
-                        </h2>
-
-                        <div class="service-icons">
-
-                            <div class="service-item">
-                                <span>🛢️</span>
-                                <small>
-                                    ÓLEO 100%<br>
-                                    SINTÉTICO
-                                </small>
-                            </div>
-
-                            <div class="service-item">
-                                <span>⚙️</span>
-                                <small>
-                                    FILTRO<br>
-                                    DE ÓLEO
-                                </small>
-                            </div>
-
-                            <div class="service-item">
-                                <span>🔧</span>
-                                <small>
-                                    MÃO DE OBRA<br>
-                                    ESPECIALIZADA
-                                </small>
-                            </div>
-
-                            <div class="service-item">
-                                <span>🛡️</span>
-                                <small>
-                                    MAIS PROTEÇÃO<br>
-                                    PARA O MOTOR
-                                </small>
-                            </div>
-
-                        </div>
-
-                        <button class="cta-button">
-                            AGENDE AGORA MESMO!
-                        </button>
-
-                        <div class="whatsapp">
-                            🟢 <strong>(22) 99935-0460</strong>
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-                <!-- SLIDE 2 - GANDUR -->
-                <article class="promo-slide"
-                         style="
-                         background-image:
-                         linear-gradient(90deg,
-                         rgba(0,0,0,.96) 0%,
-                         rgba(0,0,0,.70) 48%,
-                         rgba(0,0,0,.10) 100%),
-                         url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1600&q=85');
-                         ">
-
-                    <div class="promo-content">
-
-                        <div class="gandur-logo">
-                            <span>〰</span> GANDUR
-                            <small>ÁUDIO SYSTEM</small>
-                        </div>
-
-                        <h1>
-                            SONORIZAÇÃO<br>
-                            <strong>PARA TEMPLOS E IGREJAS</strong>
-                        </h1>
-
-                        <div class="gandur-highlight">
-                            TECNOLOGIA • QUALIDADE • FIDELIDADE
-                        </div>
-
-                        <h2>
-                            O SOM QUE TOCA VIDAS!
-                        </h2>
-
-                        <div class="service-icons">
-
-                            <div class="service-item">
-                                <span>🔊</span>
-                                <small>
-                                    LINE ARRAY<br>
-                                    PROFISSIONAL
-                                </small>
-                            </div>
-
-                            <div class="service-item">
-                                <span>🎛️</span>
-                                <small>
-                                    MESAS<br>
-                                    DIGITAIS
-                                </small>
-                            </div>
-
-                            <div class="service-item">
-                                <span>🔈</span>
-                                <small>
-                                    CAIXAS E<br>
-                                    SUBWOOFERS
-                                </small>
-                            </div>
-
-                            <div class="service-item">
-                                <span>⚙️</span>
-                                <small>
-                                    PROJETO E<br>
-                                    INSTALAÇÃO
-                                </small>
-                            </div>
-
-                        </div>
-
-                        <button class="cta-button blue-button">
-                            SOLICITE UM PROJETO
-                        </button>
-
-                    </div>
-
-                </article>
-
-
-                <!-- SLIDE 3 -->
-                <article class="promo-slide"
-                         style="
-                         background-image:
-                         linear-gradient(90deg,
-                         rgba(0,0,0,.94) 0%,
-                         rgba(0,0,0,.70) 50%,
-                         rgba(0,0,0,.15) 100%),
-                         url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85');
-                         ">
-
-                    <div class="promo-content">
-
-                        <div class="promo-label">
-                            CUIDE DO SEU CARRO
-                        </div>
-
-                        <h1>
-                            MANUTENÇÃO<br>
-                            <strong>PREVENTIVA</strong>
-                        </h1>
-
-                        <h2>
-                            MAIS SEGURANÇA.<br>
-                            MAIS TRANQUILIDADE.<br>
-                            MAIS VIDA ÚTIL.
-                        </h2>
-
-                        <div class="maintenance-list">
-
-                            <div>✓ Freios</div>
-                            <div>✓ Suspensão</div>
-                            <div>✓ Pneus</div>
-                            <div>✓ Alinhamento</div>
-                            <div>✓ Bateria</div>
-                            <div>✓ Troca de óleo</div>
-
-                        </div>
-
-                        <button class="cta-button">
-                            FALE COM A JOCAUTO
-                        </button>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-
-            <!-- INDICADORES -->
-            <div class="slider-dots">
-
-                <span class="slider-dot active" data-slide="0"></span>
-                <span class="slider-dot" data-slide="1"></span>
-                <span class="slider-dot" data-slide="2"></span>
-
-            </div>
-
-        </section>
-
-
-        <!-- ÚLTIMAS NOTÍCIAS -->
-        <section class="latest-news">
-
-            <div class="section-title">
-                <span class="title-line"></span>
-                ÚLTIMAS NOTÍCIAS
-                <span class="news-source">INFORMAÇÃO • ENTRETENIMENTO</span>
-            </div>
-
-            <div id="latest-news-grid" class="latest-news-grid">
-                <!-- JS -->
-            </div>
-
-        </section>
-
-
-        <!-- RODAPÉ -->
-        <footer class="footer">
-
-            <div class="footer-logo">
-                <span class="logo-joc">JOC</span><span class="logo-auto">AUTO</span>
-                <small>AUTO CENTER</small>
-            </div>
-
-            <div class="footer-message">
-                CUIDAR BEM DO SEU CARRO<br>
-                É O NOSSO COMPROMISSO!
-            </div>
-
-            <div class="footer-values">
-
-                <div>
-                    <span>✓</span>
-                    <small>QUALIDADE</small>
-                </div>
-
-                <div>
-                    <span>✓</span>
-                    <small>CONFIANÇA</small>
-                </div>
-
-                <div>
-                    <span>↻</span>
-                    <small>AGILIDADE</small>
-                </div>
-
-                <div>
-                    <span>♢</span>
-                    <small>PREÇO JUSTO</small>
-                </div>
-
-            </div>
-
-        </footer>
-
-
-        <!-- STATUS BAR -->
-        <div class="status-bar">
-
-            <div>
-                📶 WI-FI: JOCAUTO_CLIENTES
-            </div>
-
-            <strong>
-                AGRADECEMOS A PREFERÊNCIA!
-            </strong>
-
-            <div>
-                ● Instagram &nbsp; ● Facebook
-                &nbsp; @jocautoautocenter
-            </div>
 
         </div>
 
-    </main>
+    </section>
+
+
+
+    <!-- =====================================================
+         TECNOLOGIA
+    ====================================================== -->
+
+    <section class="technology panel">
+
+        <div class="technology-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1551830820-330a71b99659?auto=format&fit=crop&w=700&q=80"
+                alt="Tecnologia automotiva">
+
+        </div>
+
+
+        <div class="technology-text">
+
+            <div class="panel-title">
+                🤖 TECNOLOGIA
+            </div>
+
+            <h2>
+                O FUTURO DO
+                AUTOMÓVEL
+            </h2>
+
+            <p>
+                Sensores, eletrônica,
+                inteligência artificial e
+                sistemas avançados estão
+                transformando os veículos
+                modernos.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         CONTATO
+    ====================================================== -->
+
+    <section class="contact-panel">
+
+
+        <div class="contact-brand">
+
+            <div class="brand-name">
+                <span>JOC</span>AUTO
+            </div>
+
+            <small>
+                AUTO CENTER
+            </small>
+
+        </div>
+
+
+        <div class="contact-whatsapp">
+
+            <span>
+                FALE CONOSCO PELO WHATSAPP
+            </span>
+
+            <strong>
+                📱 (22) 97403-3745
+            </strong>
+
+        </div>
+
+
+        <div class="contact-gandur">
+
+            <span>
+                GANDUR ÁUDIO SYSTEM
+            </span>
+
+            <strong>
+                📱 (22) 99734-6040
+            </strong>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ====================================================== -->
+
+    <footer>
+
+        <div>
+            📶 WI-FI: JOCAUTO_CLIENTES
+        </div>
+
+        <strong>
+            AGRADECEMOS A PREFERÊNCIA!
+        </strong>
+
+        <div>
+            Instagram • Facebook
+        </div>
+
+    </footer>
+
 
 </div>
+
 
 <script>
 
 /* =========================================================
-   RELÓGIO E DATA
+   RELÓGIO
 ========================================================= */
 
-function updateClock() {
+function atualizarRelogio() {
 
-    const now = new Date();
+    const agora = new Date();
 
-    const time = now.toLocaleTimeString(
-        'pt-BR',
-        {
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-        }
-    );
 
-    const date = now.toLocaleDateString(
-        'pt-BR',
-        {
-            weekday: 'long',
-            day: '2-digit',
-            month: 'long',
-            year: 'numeric'
-        }
-    );
+    const hora =
+        agora.toLocaleTimeString(
+            'pt-BR',
+            {
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            }
+        );
 
-    document.getElementById('clock').textContent = time;
 
-    document.getElementById('date').textContent =
-        capitalize(date);
+    const data =
+        agora.toLocaleDateString(
+            'pt-BR',
+            {
+                weekday: 'long',
+                day: '2-digit',
+                month: 'long',
+                year: 'numeric'
+            }
+        );
+
+
+    document.getElementById(
+        'clock'
+    ).textContent = hora;
+
+
+    document.getElementById(
+        'date'
+    ).textContent =
+        data.charAt(0).toUpperCase()
+        + data.slice(1);
+
 }
 
 
-function capitalize(text) {
+atualizarRelogio();
 
-    return text.charAt(0).toUpperCase() +
-           text.slice(1);
-}
+setInterval(
+    atualizarRelogio,
+    1000
+);
 
-
-updateClock();
-
-setInterval(updateClock, 1000);
 
 
 /* =========================================================
-   CLIMA - MOCK
+   CLIMA
 ========================================================= */
 
-const weatherData = {
+const clima = {
 
-    city: "Nova Friburgo - RJ",
+    temperatura: 22,
 
-    current: {
-        temperature: 25,
-        description: "Parcialmente nublado",
-        icon: "🌤️"
-    },
+    icone: "🌤️",
 
-    forecast: [
+    descricao:
+        "Parcialmente nublado",
+
+    previsao: [
 
         {
-            day: "TER",
-            icon: "🌤️",
-            max: 26,
+            dia: "HOJE",
+            icone: "🌤️",
+            max: 24,
             min: 16
         },
 
         {
-            day: "QUA",
-            icon: "🌧️",
-            max: 24,
+            dia: "SEX",
+            icone: "☀️",
+            max: 26,
             min: 17
         },
 
         {
-            day: "QUI",
-            icon: "🌤️",
+            dia: "SÁB",
+            icone: "🌧️",
+            max: 23,
+            min: 16
+        },
+
+        {
+            dia: "DOM",
+            icone: "🌤️",
             max: 25,
             min: 15
         },
 
         {
-            day: "SEX",
-            icon: "☀️",
+            dia: "SEG",
+            icone: "☀️",
             max: 27,
             min: 16
-        },
-
-        {
-            day: "SÁB",
-            icon: "☀️",
-            max: 28,
-            min: 17
         }
 
     ]
@@ -1568,344 +1525,358 @@ const weatherData = {
 };
 
 
-function loadWeather() {
+function carregarClima() {
 
-    document.getElementById('weather-icon')
-        .textContent =
-        weatherData.current.icon;
-
-    document.getElementById('temperature')
-        .textContent =
-        `${weatherData.current.temperature}°C`;
-
-    document.getElementById('weather-description')
-        .textContent =
-        weatherData.current.description;
-
-    renderForecast();
-
-}
+    document.getElementById(
+        "weather-icon"
+    ).textContent =
+        clima.icone;
 
 
-function renderForecast() {
+    document.getElementById(
+        "temperature"
+    ).textContent =
+        clima.temperatura + "°C";
+
 
     const container =
-        document.getElementById('forecast');
+        document.getElementById(
+            "forecast"
+        );
+
 
     container.innerHTML = "";
 
-    weatherData.forecast.forEach(day => {
 
-        const item =
-            document.createElement('div');
+    clima.previsao.forEach(
+        item => {
 
-        item.className =
-            'forecast-day';
+            const div =
+                document.createElement(
+                    "div"
+                );
 
-        item.innerHTML = `
 
-            <div class="forecast-name">
-                ${day.day}
-            </div>
+            div.className =
+                "forecast-day";
 
-            <div class="forecast-icon">
-                ${day.icon}
-            </div>
 
-            <div class="forecast-temp">
-                ${day.max}°<br>
-                <span style="color:#777">
-                    ${day.min}°
+            div.innerHTML = `
+
+                <strong>
+                    ${item.dia}
+                </strong>
+
+                <div class="icon">
+                    ${item.icone}
+                </div>
+
+                <strong>
+                    ${item.max}°
+                </strong>
+
+                <span>
+                    ${item.min}°
                 </span>
-            </div>
 
-        `;
+            `;
 
-        container.appendChild(item);
 
-    });
+            container.appendChild(div);
+
+        }
+    );
 
 }
 
 
-loadWeather();
+carregarClima();
+
 
 
 /* =========================================================
    NOTÍCIAS
 ========================================================= */
 
-const news = [
+const noticias = [
 
     {
-        title:
-            "Novas tecnologias estão transformando os veículos modernos.",
-        time:
+        titulo:
+            "Tecnologias modernas estão transformando os veículos.",
+        tempo:
+            "há pouco",
+        imagem:
+            "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=400&q=80"
+    },
+
+    {
+        titulo:
+            "Manutenção preventiva aumenta a segurança do veículo.",
+        tempo:
             "há 1 hora",
-        image:
-            "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=300&q=80"
+        imagem:
+            "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=400&q=80"
     },
 
     {
-        title:
-            "Manutenção preventiva ajuda a evitar problemas inesperados.",
-        time:
+        titulo:
+            "Novidades em tecnologia automotiva chegam ao mercado.",
+        tempo:
             "há 2 horas",
-        image:
-            "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=300&q=80"
-    },
-
-    {
-        title:
-            "Mercado automotivo recebe novas tecnologias de segurança.",
-        time:
-            "há 3 horas",
-        image:
-            "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=300&q=80"
+        imagem:
+            "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=400&q=80"
     }
 
 ];
 
 
-function renderFeaturedNews() {
+function carregarNoticias() {
 
-    const container =
+    const lista =
         document.getElementById(
-            'featured-news-list'
+            "news-list"
         );
 
-    container.innerHTML = "";
 
-    news.forEach(item => {
+    lista.innerHTML = "";
 
-        const element =
-            document.createElement('div');
 
-        element.className =
-            'news-item';
+    noticias.forEach(
+        noticia => {
 
-        element.innerHTML = `
+            const item =
+                document.createElement(
+                    "div"
+                );
 
-            <img
-                src="${item.image}"
-                alt="Notícia"
-            >
 
-            <div>
+            item.className =
+                "news-item";
 
-                <div class="news-title">
-                    ${item.title}
+
+            item.innerHTML = `
+
+                <img
+                    src="${noticia.imagem}"
+                    alt="Notícia"
+                >
+
+                <div>
+
+                    <strong>
+                        ${noticia.titulo}
+                    </strong>
+
+                    <small>
+                        ${noticia.tempo}
+                    </small>
+
                 </div>
 
-                <span class="news-time">
-                    ${item.time}
-                </span>
-
-            </div>
-
-        `;
-
-        container.appendChild(element);
-
-    });
-
-}
+            `;
 
 
-renderFeaturedNews();
-
-
-/* =========================================================
-   ÚLTIMAS NOTÍCIAS
-========================================================= */
-
-function renderLatestNews() {
-
-    const container =
-        document.getElementById(
-            'latest-news-grid'
-        );
-
-    container.innerHTML = "";
-
-    news.forEach(item => {
-
-        const element =
-            document.createElement('article');
-
-        element.className =
-            'latest-news-card';
-
-        element.innerHTML = `
-
-            <img
-                src="${item.image}"
-                alt="Notícia"
-            >
-
-            <div>
-
-                <strong>
-                    ${item.title}
-                </strong>
-
-                <span>
-                    ${item.time}
-                </span>
-
-            </div>
-
-        `;
-
-        container.appendChild(element);
-
-    });
-
-}
-
-
-renderLatestNews();
-
-
-/* =========================================================
-   SLIDER PRINCIPAL
-========================================================= */
-
-const slides =
-    document.querySelectorAll('.promo-slide');
-
-const dots =
-    document.querySelectorAll('.slider-dot');
-
-let currentSlide = 0;
-
-const SLIDE_TIME = 12000;
-
-
-function showSlide(index) {
-
-    slides.forEach(
-        slide => slide.classList.remove('active')
-    );
-
-    dots.forEach(
-        dot => dot.classList.remove('active')
-    );
-
-    slides[index].classList.add('active');
-
-    dots[index].classList.add('active');
-
-    currentSlide = index;
-
-}
-
-
-function nextSlide() {
-
-    let next =
-        currentSlide + 1;
-
-    if (next >= slides.length) {
-        next = 0;
-    }
-
-    showSlide(next);
-
-}
-
-
-let sliderTimer =
-    setInterval(
-        nextSlide,
-        SLIDE_TIME
-    );
-
-
-/* =========================================================
-   CLIQUE NOS DOTS
-========================================================= */
-
-dots.forEach((dot, index) => {
-
-    dot.addEventListener(
-        'click',
-        () => {
-
-            showSlide(index);
-
-            clearInterval(sliderTimer);
-
-            sliderTimer =
-                setInterval(
-                    nextSlide,
-                    SLIDE_TIME
-                );
+            lista.appendChild(item);
 
         }
     );
 
-});
+}
+
+
+carregarNoticias();
+
 
 
 /* =========================================================
-   ATUALIZAÇÃO DO CLIMA
-   FUTURAMENTE PODE SER SUBSTITUÍDO POR API
+   SLIDER
 ========================================================= */
 
-async function updateWeatherFromAPI() {
-
-    /*
-       Futuramente você pode substituir esta função
-       por uma chamada real, por exemplo:
-
-       const response = await fetch(
-           "URL_DA_API"
-       );
-
-       const data = await response.json();
-
-       weatherData.current.temperature =
-           data.temperature;
-
-       ...
-
-       loadWeather();
-    */
-
-    console.log(
-        "Clima atualizado:",
-        new Date().toLocaleTimeString()
+const slides =
+    document.querySelectorAll(
+        ".slide"
     );
+
+
+const dots =
+    document.querySelectorAll(
+        ".dot"
+    );
+
+
+let slideAtual = 0;
+
+
+function mostrarSlide(numero) {
+
+    slides.forEach(
+        slide =>
+            slide.classList.remove(
+                "active"
+            )
+    );
+
+
+    dots.forEach(
+        dot =>
+            dot.classList.remove(
+                "active"
+            )
+    );
+
+
+    slides[numero]
+        .classList.add(
+            "active"
+        );
+
+
+    dots[numero]
+        .classList.add(
+            "active"
+        );
+
+
+    slideAtual = numero;
+
+}
+
+
+function proximoSlide() {
+
+    let proximo =
+        slideAtual + 1;
+
+
+    if (
+        proximo >=
+        slides.length
+    ) {
+
+        proximo = 0;
+
+    }
+
+
+    mostrarSlide(proximo);
 
 }
 
 
 /*
-   Atualiza o clima periodicamente.
-   Quando colocarmos uma API real,
-   basta trocar a função acima.
+   Troca a cada 12 segundos.
 */
 
-setInterval(
-    updateWeatherFromAPI,
-    15 * 60 * 1000
-);
+let timerSlider =
+    setInterval(
+        proximoSlide,
+        12000
+    );
+
 
 
 /* =========================================================
-   EVITA QUE O MXQ ENTRE EM COMPORTAMENTOS INDESEJADOS
+   DOTS
+========================================================= */
+
+dots.forEach(
+    (dot, index) => {
+
+        dot.addEventListener(
+            "click",
+            () => {
+
+                mostrarSlide(index);
+
+
+                clearInterval(
+                    timerSlider
+                );
+
+
+                timerSlider =
+                    setInterval(
+                        proximoSlide,
+                        12000
+                    );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   DICAS
+========================================================= */
+
+const dicas = [
+
+    "Faça a manutenção preventiva antes que um pequeno problema se transforme em um grande prejuízo.",
+
+    "Confira regularmente a calibragem dos pneus, principalmente antes de viagens.",
+
+    "O óleo correto ajuda a proteger o motor e manter seu funcionamento adequado.",
+
+    "Ruídos diferentes no carro podem ser um sinal de que algo precisa ser verificado."
+
+];
+
+
+const fatos = [
+
+    "Pneus corretamente calibrados ajudam na segurança e podem contribuir para reduzir o consumo.",
+
+    "O sistema de freios é um dos principais itens relacionados à segurança do veículo.",
+
+    "A eletrônica está cada vez mais presente nos veículos modernos.",
+
+    "Sistemas de assistência ao motorista utilizam diversos sensores para aumentar a segurança."
+
+];
+
+
+function atualizarDicaEFato() {
+
+    const dia =
+        new Date().getDate();
+
+
+    document.getElementById(
+        "daily-tip"
+    ).textContent =
+        dicas[dia % dicas.length];
+
+
+    document.getElementById(
+        "daily-fact"
+    ).textContent =
+        fatos[dia % fatos.length];
+
+}
+
+
+atualizarDicaEFato();
+
+
+
+/* =========================================================
+   PROTEÇÃO DO TOTEM
 ========================================================= */
 
 document.addEventListener(
-    'contextmenu',
+    "contextmenu",
     event => event.preventDefault()
 );
 
+
 document.addEventListener(
-    'selectstart',
+    "selectstart",
     event => event.preventDefault()
 );
+
 
 
 /* =========================================================
@@ -1913,10 +1884,11 @@ document.addEventListener(
 ========================================================= */
 
 console.log(
-    "Jocauto Dashboard iniciado."
+    "Jocauto Kiosk iniciado."
 );
 
 </script>
 
 </body>
+
 </html>
